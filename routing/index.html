@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Geolocation</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="map" style="width:100%; height: 100vh"></div>
+	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+
+	<script>
+
+		//icon for stations
+		var locicon = L.icon(
+			{
+				iconUrl: 'img/loc.png',
+				iconSize: [50,50]
+			}
+		);
+
+		var map = L.map('map').setView([33.646417, 72.994463], 25);
+		mapLink = "<a href='http://openstreetmap.org'>OpenStreetMap</a>";
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: 'Leaflet &copy; ' + mapLink + ', contribution', maxZoom: 18 }).addTo(map);
+
+		var taxiIcon = L.icon({
+			iconUrl: 'img/car.png',
+			iconSize: [50, 50]
+		})
+
+		var marker = L.marker([33.646417, 72.994463], { icon: taxiIcon }).addTo(map);
+
+		 map.on('click', function (e) {
+			console.log(e)
+			var newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+			var rout= L.Routing.control({
+				waypoints: [
+					L.latLng(33.646417, 72.994463),
+					L.latLng(e.latlng.lat, e.latlng.lng)
+				]
+			}).on('routesfound', function (e) {
+				var routes = e.routes;
+				console.log(routes);
+
+				e.routes[0].coordinates.forEach(function (coord, index) {
+					setTimeout(function () {
+						marker.setLatLng([coord.lat, coord.lng]);
+					}, 100 * index)
+				})
+
+			}).addTo(map);
+		});
+
+		L.marker([33.64499555677207, 72.98807868395437], {icon: locicon}).addTo(map).bindPopup("IGIS, NUST, H-12");
+		L.marker([33.64128801562591, 72.9946326137086], {icon: locicon}).addTo(map).bindPopup("NUST Bowling Alley, H-12");
+		L.marker([33.64168013646472, 72.9836700758981], {icon: locicon}).addTo(map).bindPopup("NUST Exam Hall, H-12");
+		L.marker([33.64608828532623, 72.99618542273834], {icon: locicon}).addTo(map).bindPopup("NSTEP, NUST, H-12");
+
+
+	</script>
+
+
+</body>
+
+</html>

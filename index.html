@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Spatial Hub</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="index.html" class="pull-left visible-md visible-lg">
+                        <div id="logo-img" alt="Logo image" width: 100px>
+                            <img src="images/LogoBySaad.png" alt="" width="150px">
+                        </div>
+                    </a>
+
+                    <div class="navbar-brand">
+                        <a href="index.html"><h1>The Spatial Hub</h1></a>
+                        <p>
+                            <img src="images/Esri_logo.png" alt="Esri Certification" width="75px" height="35px">
+                            <span>Esri Certified</span>
+                        </p>
+                    </div>
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle Naviagation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+
+                    </button>
+                </div>
+
+                 <div id="collapsable-nav" class="collapse navbar-collapse">
+                    <ul id="nav-list" class="nav navbar-nav navbar-right">
+                        <li class="visible-xs active">
+                            <a href="index.html">
+                                <span class="glyphicon glyphicon-home"></span> Home</a>
+                        </li>
+                        <li>
+                            <a href="../Hayat/Shortest Path using Mapbox API/index.html" target="_blank">
+                                <span class="glyphicon glyphicon-road"></span><br class="hidden-xs"> Shortest Path</a>
+                        </li>
+                        <li>
+                            <a href="./realtimw.html" target="_blank">
+                                <span class="glyphicon glyphicon-map-marker"></span><br class="hidden-xs"> Your Location</a>
+                        </li>
+                        <li>
+                            <a href="../">
+                                <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> About Us</a>
+                        </li>
+                        <li id="phone" class="hidden-xs">
+                            <a href="tel:051-9267241">
+                                <span>(051)9267241</span></a><div>* We deliver</div>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div id="call-btn" class="visible-xs">
+        <a class="btn" href="tel:0519267241">
+        <span class="glyphicon glyphicon-earphone"></span>
+        (051)9267241
+        </a>
+    </div>
+    <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
+   
+    <div id="main-content" class="container">
+        
+        <div class="jumbotron" >
+             <img src="images/5.png" alt="Picture of GIS Working" width="100%" height="400px" >
+        </div>
+
+        <div id="home-tiles" class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <a href="./Shortest Path using Mapbox API/index.html" target="_blank"><div id="menu-tile"><span>Shortest Route</span>
+                <img src="./images/short.png" alt="" width="100%" height="85%"></div></a>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <a href="../Hayat/routing/index.html" target="_blank"><div id="specials-tile" ><span>Car Animation</span>
+                <img src="./images/ess.png" alt="" width="100%" height="100%"></div></a>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <a href="https://goo.gl/maps/1f8c3CkBEcfuZyGw5" target="_blank"><div id="map-tile">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.4224422357593!2d72.99425281497369!3d33.646214380718334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df9573aecd2f93%3A0x1c7fdc5084512ca2!2sNational%20Science%20and%20Technology%20Park%20(NSTP)!5e0!3m2!1sen!2s!4v1666212579625!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <span>Map</span></div></a>
+            </div>
+
+
+        </div> <!--End of #home-tiles-->
+
+    </div> <!--End of #main-conent-->
+
+    <footer class="panel-footer">
+        <div class="container">
+            <div class="row">
+                <section id="hours" class="col-sm-4">
+                    <span>Hours:</span><br>
+                    Sun-Thurs: 11:15am - 10:00pm <br>
+                    Fri: 11:15am - 2:30pm <br>
+                    Saturday Closed
+                    <hr class="visible-xs">
+                </section>
+                <section id="address" class="col-sm-4">
+                    <span>Address:</span><br>
+                    First FLoor, IGIS <br>
+                    NUST, H-12, Islamabad
+                    <p>* 50% off for IGIS Students.</p>
+                    <hr class="visible-xs">
+                </section>
+                <section id="testimonials" class="col-sm-4">
+                    <p>"The best Software house in the town! And that's saying a lot, since I've been to many!"</p>
+                    <p>"Amazing Work! Great Service! Couldn't ask for more! I'll be back again and again!"</p>
+                </section>
+            </div>
+            <div class="text-center">&copy; Copyright the sptial hub by DBMS Group 3</div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

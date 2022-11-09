@@ -1,0 +1,82 @@
+<!DOCTYPE !html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Realtime Location Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <Style>
+        body
+        {
+            margin:0;
+            padding: 0;
+        }
+        #map
+        {
+            width: 100%;
+            height: 100vh;
+        }
+      </Style>
+    <body>
+        <div id = "map"></div>
+    </body>
+
+</head>
+</html>
+
+<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<script>
+//Map Initialization
+var map = L.map('map').setView([40.84615819540972, 67.25027080204754], 2);
+
+
+//osm layer
+var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+
+if(!navigator.geolocation)
+{
+    console.log("Your browser does not supoort geolaction feature.")
+} else 
+{
+    setInterval(() => {
+        navigator.geolocation.getCurrentPosition(getpos)
+    }, 5000);
+}
+
+
+var marker, circle;
+
+function getpos(position)
+{
+    console.log(position)
+    var lat=position.coords.latitude
+    var lon=position.coords.longitude
+    var acc=position.coords.accuracy
+    if(marker)
+    {
+        map.removeLayer(marker)
+    }
+
+    if(circle)
+    {
+        map.removeLayer(circle)
+    }
+    marker = L.marker([lat, lon])
+    circle = L.circle([lat, lon], {radius: acc})
+
+    var featuregroup= L.featureGroup([marker, circle]).addTo(map)
+
+    map.fitBounds(featuregroup.getBounds())
+
+    console.log("Latitude: "+ lat + "Longitude: "+lon+ "Accuracy: "+acc )
+
+}
+
+</script>
